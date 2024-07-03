@@ -1,4 +1,4 @@
-public class Product {
+public class Product implements Comparable{
     private int id;
     private String title;
     private int price;
@@ -41,6 +41,18 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    @Override
+    public int compareTo(Object obj) {
+        Product product = (Product) obj;
+        if(this.id == product.id) {
+            return 0;
+        }
+        if(this.id > product.id) {
+            return 1;
+        }
+        return -1;
+    }
 }
 
 class ProductComparator implements Comparator {
@@ -54,6 +66,24 @@ class ProductComparator implements Comparator {
         }
 
         if(p1.getId() > p2.getId()) {
+            return -1;
+        }
+
+        return 1;
+    }
+}
+
+class ProductPriceComparator implements Comparator {
+    @Override
+    public int compare(Object obj1, Object obj2) {
+        Product p1 = (Product) obj1;
+        Product p2 = (Product) obj2;
+
+        if(p1.getPrice() == p2.getPrice()) {
+            return 0;
+        }
+
+        if(p1.getPrice() < p2.getPrice()) {
             return -1;
         }
 

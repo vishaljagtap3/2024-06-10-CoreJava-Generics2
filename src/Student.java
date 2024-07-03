@@ -1,4 +1,4 @@
-public class Student {
+public class Student implements Comparable {
     private int roll;
     private String name;
     private int marks;
@@ -36,6 +36,21 @@ public class Student {
 
     public void setMarks(int marks) {
         this.marks = marks;
+    }
+
+    @Override
+    public int compareTo(Object obj) {
+        Student student = (Student) obj;
+
+        if(this.roll == student.roll) {
+            return 0;
+        }
+
+        if(this.roll > student.roll) {
+            return 1;
+        }
+
+        return -1;
     }
 }
 
