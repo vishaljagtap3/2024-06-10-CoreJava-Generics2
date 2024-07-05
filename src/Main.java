@@ -40,7 +40,7 @@ public class Main {
             System.out.println(product);
         }*/
 
-        Student [] students = new Student[6];
+        /*Student [] students = new Student[6];
         students[0] = new Student(45, "Sanika", 74);
         students[1] = new Student(34, "Shreya", 93);
         students[2] = new Student(22, "Neha", 81);
@@ -52,7 +52,7 @@ public class Main {
 
         for(Student student : students) {
             System.out.println(student);
-        }
+        }*/
         System.out.println();
 
         Product [] products = new Product[5];
@@ -64,10 +64,35 @@ public class Main {
 
         //Util.sort(products, new ProductComparator());
         Util.sort(products, new ProductPriceComparator());
-
         for(Product product : products) {
             System.out.println(product);
         }
+
+        System.out.println();
+
+        Util.sort(
+                products,
+                new Comparator() {
+                    @Override
+                    public int compare(Object obj1, Object obj2) {
+                        Product p1 = (Product) obj1;
+                        Product p2 = (Product) obj2;
+                        if(p1.getId() == p2.getId()) {
+                            return 0;
+                        }
+
+                        if(p1.getId() > p2.getId()) {
+                            return 1;
+                        }
+
+                        return -1;
+                    }
+                }
+        );
+        for(Product product : products) {
+            System.out.println(product);
+        }
+        System.out.println();
 
 
         /*int [] arr = {14, 68, 34, 56, 99, 12, 29, 85};
