@@ -1,6 +1,6 @@
 public class Util {
 
-    public static void sort(Object [] arr, Comparator c) {
+    public static <T> void sort(T [] arr, Comparator c) {
         int passes = arr.length - 1;
         int comps = arr.length - 1;
 
@@ -8,7 +8,7 @@ public class Util {
             for(int j = 0; j < (comps - i); j++) {
                 int res = c.compare(arr[j], arr[j+1]);
                 if(res == 1) {
-                    Object temp = arr[j];
+                    T temp = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
                 }

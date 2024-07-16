@@ -1,3 +1,3 @@
-public interface Comparator {
-    int compare(Object obj1, Object obj2);
+public interface Comparator<T> {
+    int compare(T obj1, T obj2);
 }
